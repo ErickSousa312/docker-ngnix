@@ -26,3 +26,81 @@ docker run -d --network NET1 -h mongo --name mongo -e MONGO_INITDB_ROOT_USERNAME
 
 criar volume-----------------
 docker volume create VOL1
+
+iniciar docker composer ----------------------
+docker-compose up -d
+
+
+
+Exportar um contêiner para um arquivo tar:
+
+bash
+Copy code
+docker export nome_do_contêiner > contêiner.tar
+Importar um contêiner de um arquivo tar:
+
+bash
+Copy code
+docker import contêiner.tar nome_do_contêiner:tag
+
+
+
+2. Extrair o arquivo tar:
+
+bash
+Copy code
+tar -xvzf nome_do_arquivo.tar.gz
+
+Compactar várias pastas em um único arquivo ZIP:
+Se desejar compactar várias pastas em um único arquivo ZIP, você pode simplesmente listar todas as pastas após a opção -r. Por exemplo:
+
+bash
+Copy code
+zip -r arquivo.zip pasta1 pasta2 pasta3
+
+Exemplo de compactação de uma pasta
+zip -r arquivo.zip /caminho/para/meus_documentos
+
+
+Username for 'https://github.com': ErickSousa312
+Password for 'https://ErickSousa312@github.com':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
+
+
+iniciar docker 
+docker start linux5
+
+conectar via ssh no container
+ssh -p 2222 root@localhost 
+senha: Password
+
+
+Comandos:
+
+docker start [nome do container] -------------------------- não bloqueia a aplicação
+
+docker run (executar novo container)
+
+docker ps (lista todos os containers rodando)
+
+docker ps -a (demonstra todos os containers, até os parados)
+
+docker run ubuntu bash (roda container com Ubuntu e já abre o terminal)
+
+docker run -it ubuntu bash (roda imagem de modo interativo)
+
+crtl + d (sair do contêiner/bash)
+
+docker run nginx (roda imagem do nginx na porta 80 do contêiner, não do computador)
+
+docker run -p 8080:80 nginx (roda a imagem nginx com o contêiner publicado na porta 8080 do computador)
+
+docker exec [nome do container] ls (lista diretórios dentro do container devido ao comando exec)
+
+docker run -p 8080:80 -v [diretório pasta compartilhada] (mesmo derrubando o container, os arquivos de desenvolvimento não são perdidos)
+
+dockerfile (criar sua própria imagem)
+
+docker build -t [usuario]/[imagem]:latest
+docker build SO:latest .  ------------exemplo de buildar com tag personalizada
+
+docker commit <nome_ou_id_do_container> <nome_da_nova_imagem> ------------------------ cria copia de uma imagem
