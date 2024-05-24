@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.9'
 
 networks:
   nginx_net:
@@ -8,13 +8,10 @@ services:
   nginx:
     image: nginx
     ports:
-      - 80:80
-    # volumes:
-    #   - ./nginx.conf:/etc/nginx/nginx.conf
+      - 8088:80
+    volumes:
+     - ./nginx.conf:/etc/nginx/nginx.conf
+     - ./index.html:/usr/share/nginx/html/index.html
     networks:
       - nginx_net
 
-  debian:
-    image: debian
-    networks:
-      - nginx_net
